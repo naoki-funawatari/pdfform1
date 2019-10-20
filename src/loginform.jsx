@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class LoginForm extends React.Component {
     constructor(props) {
@@ -12,8 +13,10 @@ export default class LoginForm extends React.Component {
                 <br />
                 <input type="password" name="" id="" />
                 <br />
-                <button>ログインする</button>
-            </div>
+                <Link to='/selectform'>
+                    <button>ログインする</button>
+                </Link>
+            </div >
         );
     }
 }

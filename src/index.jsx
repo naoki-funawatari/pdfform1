@@ -1,27 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// import ReactRouter from 'react-router';
+import { BrowserRouter, Route } from 'react-router-dom';
 // const Router = ReactRouter.Router;
 // const Route = ReactRouter.Route;
 // const IndexRoute = ReactRouter.IndexRoute;
 // const History = ReactRouter.History;
 
-// import LoginForm from 'D:/Projects/pdfform1/src/loginform.jsx';
-// import SelectForm from 'D:/Projects/pdfform1/src/selectform.jsx';
-import LoginForm from './loginform.jsx';
-import SelectForm from './selectform.jsx';
-
-// var Routes = (
-//     <Route path="/" component={Index}>
-//         <IndexRoute component={Top} />
-//         <Route path="/login" component={Top} />
-//         <Route path="/select" component={Main}>
-//             <IndexRoute component={Body} />
-//             <Route path="/userbox" component={UserBox} />
-//         </Route>
-//     </Route>
-// );
+import LoginForm from './loginform';
+import SelectForm from './selectform';
+import InputForm1 from './inputform1';
+import InputForm2 from './inputform2';
+import InputForm3 from './inputform3';
 
 class App extends React.Component {
     constructor(props) {
@@ -30,10 +20,16 @@ class App extends React.Component {
     }
     render() {
         return (
-            <div>
-                <LoginForm />
-                <SelectForm />
-            </div>);
+            <BrowserRouter>
+                <div>
+                    <Route exact path='/' component={LoginForm} />
+                    <Route path='/selectform' component={SelectForm} />
+                    <Route path='/inputform1' component={InputForm1} />
+                    <Route path='/inputform2' component={InputForm2} />
+                    <Route path='/inputform3' component={InputForm3} />
+                </div>
+            </BrowserRouter>
+        );
     }
 }
 
