@@ -5,6 +5,7 @@ import SelectForm from './selectform';
 import InputForm1 from './inputform1';
 import InputForm2 from './inputform2';
 import InputForm3 from './inputform3';
+import Quiz from './quiz';
 
 export default class Router extends React.Component {
     constructor(props) {
@@ -15,11 +16,12 @@ export default class Router extends React.Component {
         return (
             <BrowserRouter>
                 <div>
-                    <Route exact path='/' component={LoginForm} />
+                    <Route exact path='/' component={Quiz} />
                     <Route path='/selectform' component={SelectForm} />
                     <Route path='/inputform1' component={InputForm1} />
                     <Route path='/inputform2' component={InputForm2} />
                     <Route path='/inputform3' component={InputForm3} />
+                    <Route path='/quiz' component={Quiz} />
                 </div>
             </BrowserRouter>
         );
