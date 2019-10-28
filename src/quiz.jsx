@@ -4,8 +4,8 @@ import data from "./questions.json";
 
 const Quiz = () => {
   const questions = data.questions
-    .map(question => (
-      <Question text={question.question} options={question.options} />
+    .map((question, index) => (
+      <Question key={index} text={question.question} options={question.options} />
     ));
   const handleClick = () => alert('うーん、全問正解！！');
   return (
