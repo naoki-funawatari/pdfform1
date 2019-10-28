@@ -15,7 +15,6 @@ const Question = props => {
           {options}
         </ul>
       </div>
-      <button>次へ</button>
     </div>
   );
 }
