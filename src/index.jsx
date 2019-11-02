@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from './router';
+import Quiz from './quiz';
 
 const app = document.getElementById('app');
 
 ReactDOM.render(
-    <Router />,
-    app
+  <Quiz />,
+  app
 );
