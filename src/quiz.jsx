@@ -8,7 +8,7 @@ const createQuestion = quizIndex => {
     return (<Question key={quizIndex} text={quiz.question} options={quiz.options} />);
   }
 
-  return (<p>うーん、全問正解！！</p>);
+  return (<h1>お疲れさまです</h1>);
 }
 
 const Quiz = () => {
@@ -18,14 +18,25 @@ const Quiz = () => {
     question = createQuestion(quizIndex);
   }, [quizIndex]);
 
-  const handleClick = () => {
+  const handleToNextClick = () => {
     setQuizIndex(quizIndex + 1);
+  };
+  const handleToFirstClick = () => {
+    setQuizIndex(0);
+  };
+  const handleResultClick = () => {
+    alert('うーん、全問正解！！');
   };
 
   return (
     <form>
       {question}
-      <button type="button" onClick={handleClick}>次へ</button>
+      {quizIndex < data.questions.length ?
+        <button type="button" onClick={handleToNextClick}>次へ</button> :
+        <div>
+          <button type="button" onClick={handleResultClick}>結果</button>
+          <button type="button" onClick={handleToFirstClick}>最初へ</button>
+        </div>}
     </form>
   );
 }
