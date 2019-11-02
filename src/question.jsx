@@ -4,7 +4,7 @@ const Question = props => {
   const options = props.options.map((answer, index) => (
     <li key={index}>
       <input type="radio" id={`answers${index}`} name="answers" value={index} />
-      <label for={`answers${index}`}>{answer}</label>
+      <label htmlFor={`answers${index}`}>{answer}</label>
     </li>
   ));
   return (
