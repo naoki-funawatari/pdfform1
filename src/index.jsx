@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Quiz from './quiz';
+import Reception from './Reception';
 
 const app = document.getElementById('app');
 
 ReactDOM.render(
-  <Quiz />,
+  <Reception />,
   app
 );

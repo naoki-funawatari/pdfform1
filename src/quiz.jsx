@@ -1,21 +1,21 @@
 import React from 'react';
 import Question from './question';
-import data from "./questions.json";
 
-const createQuestion = quizIndex => {
-  if (quizIndex < data.questions.length) {
-    const quiz = data.questions[quizIndex];
-    return (<Question key={quizIndex} text={quiz.question} options={quiz.options} />);
+const createQuestion = (quizIndex, questions) => {
+  if (quizIndex < questions.length) {
+    const quiz = questions[quizIndex];
+    const options = [quiz.option1, quiz.option2, quiz.option3, quiz.option4];
+    return (<Question key={quizIndex} text={quiz.question} options={options} />);
   }
 
   return (<h1>お疲れさまです</h1>);
 }
 
-const Quiz = () => {
+const Quiz = props => {
   const [quizIndex, setQuizIndex] = React.useState(0);
-  let question = createQuestion(quizIndex);
+  let question = createQuestion(quizIndex, props.questions);
   React.useEffect(() => {
-    question = createQuestion(quizIndex);
+    question = createQuestion(quizIndex, props.questions);
   }, [quizIndex]);
 
   const handleToNextClick = () => {
@@ -31,7 +31,7 @@ const Quiz = () => {
   return (
     <form>
       {question}
-      {quizIndex < data.questions.length ?
+      {quizIndex < props.questions.length ?
         <button type="button" onClick={handleToNextClick}>次へ</button> :
         <div>
           <button type="button" onClick={handleResultClick}>結果</button>
